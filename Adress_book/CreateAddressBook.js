@@ -182,17 +182,21 @@ try {
       "pandey@gmail.com"
     )
   );
-  // check for duplicate Person details
-  let CountDuplicate = 0;
-  function CheckDuplicatesCount(contact_book) {
-    if (contact_book.firstName == "Pushpanjali") CountDuplicate++;
-    return CountDuplicate;
+  //Search By City
+  console.log(
+    "\n------------Search To get Contact by City Delhi---------------------"
+  );
+  function ContactByCity(contact_book) {
+    if (contact_book.city == "Delhi") console.log(contact_book.toString());
   }
+  ContactsArray.filter(ContactByCity);
 
-  //using foreach checking the count for each contact
-  ContactsArray.forEach((contact_book) => CheckDuplicatesCount(contact_book));
-  if (CountDuplicate == 1) console.log("It is Duplicate Entry");
-  else console.log("It is not Duplicate Entry");
+  //Search By State
+  console.log("----------------Search Contact By State Bihar----------------");
+  let statecontact = ContactsArray.filter((contact_book) =>
+    contact_book.state.includes("Bihar")
+  );
+  console.log(statecontact.toString());
 } catch (e) {
   console.log(e);
 }
