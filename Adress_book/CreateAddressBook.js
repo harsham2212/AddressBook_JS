@@ -182,18 +182,17 @@ try {
       "pandey@gmail.com"
     )
   );
-  ContactsArray.forEach((contact_book) => console.log(contact_book.toString()));
-
-  //finding contact using name
-  let check = ContactsArray.findIndex(
-    (contact_book) => contact_book.firstName == "Richa"
-  );
-  //Removing an element from an array at an index
-  ContactsArray.splice(check, 1);
+  //Reduce function to find total of contacts in Address Book
+  var ContactsPresenceTotal = 0;
+  function findTotalContacts(ContactsArray) {
+    if (ContactsArray != null) ContactsPresenceTotal++;
+    return ContactsPresenceTotal;
+  }
+  ContactsArray.reduce(findTotalContacts, 1);
   console.log(
-    "----------------Contacts after Being Deleted from the array------------------------"
+    "Total Contacts Present in the AddressBookMaster array: " +
+      ContactsPresenceTotal
   );
-  ContactsArray.forEach((contact_book) => console.log(contact_book.toString()));
 } catch (e) {
   console.log(e);
 }
