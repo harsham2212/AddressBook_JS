@@ -182,21 +182,14 @@ try {
       "pandey@gmail.com"
     )
   );
-  //Search By City
-  console.log(
-    "\n------------Search To get Contact by City Delhi---------------------"
-  );
-  function ContactByCity(contact_book) {
-    if (contact_book.city == "Delhi") console.log(contact_book.toString());
+  // Ability to View Person by City or State
+  function StateMap(Details) {
+    return (
+      Details.state + "    " + Details.firstName + "      " + Details.lastName
+    );
   }
-  ContactsArray.filter(ContactByCity);
-
-  //Search By State
-  console.log("----------------Search Contact By State Bihar----------------");
-  let statecontact = ContactsArray.filter((contact_book) =>
-    contact_book.state.includes("Bihar")
-  );
-  console.log(statecontact.toString());
+  let addressStateMap = ContactsArray.map(StateMap);
+  console.log(addressStateMap);
 } catch (e) {
   console.log(e);
 }
